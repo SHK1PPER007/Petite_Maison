@@ -1,0 +1,660 @@
+/* ==========================================================================
+   Petite Maison — Non-Critical & Below-the-Fold Stylesheet
+   Brandbook Palette: #FAF5F0 (Cream) | #8C0F33 (Burgundy) | #14100A (Ink)
+   ========================================================================== */
+
+/* Defer rendering for below-the-fold sections (never applied above the fold) */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 560px;
+}
+
+/* Preventing background scroll when native <dialog> lightbox is open */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* Shared Section Rhythm & Hairlines */
+.section {
+  padding: clamp(64px, 8vw, 108px) 0;
+}
+
+.section-warm {
+  background-color: var(--bg-warm);
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--line);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+}
+
+.section-heading {
+  font-size: clamp(1.75rem, 3.1vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Signature Burgundy Band (Brandbook Accent)
+   ========================================================================== */
+.brand-band {
+  background-color: var(--burgundy);
+  color: var(--bg);
+  padding: clamp(64px, 7.5vw, 96px) 0;
+}
+
+.brand-band-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.brand-band .eyebrow {
+  color: rgba(250, 245, 240, 0.65);
+}
+
+.brand-motto {
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  font-weight: 300;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
+}
+
+.brand-motto-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(250, 245, 240, 0.86);
+  max-width: 520px;
+}
+
+.brand-band-logo {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.brand-band-logo img {
+  width: min(290px, 100%);
+  height: auto;
+}
+
+/* ==========================================================================
+   Manifesto / About Space
+   ========================================================================== */
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(32px, 6vw, 84px);
+  align-items: start;
+}
+
+.manifesto-quote {
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--ink);
+  padding-left: 22px;
+  border-left: 2px solid var(--burgundy);
+  margin-bottom: 28px;
+}
+
+.manifesto-text {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin-bottom: 18px;
+}
+
+.manifesto-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-top: 22px;
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+
+/* ==========================================================================
+   Directions (Atelier Service Rows)
+   ========================================================================== */
+.directions-list {
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.direction-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 1.5fr auto;
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+  transition: border-color 0.25s ease;
+}
+
+.direction-row:hover {
+  border-bottom-color: var(--burgundy);
+}
+
+.direction-num {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--burgundy);
+}
+
+.direction-name {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.direction-desc {
+  font-size: 0.93rem;
+  line-height: 1.68;
+  color: var(--ink-2);
+}
+
+.direction-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.direction-rate {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Visual Diary: Video & Photography
+   ========================================================================== */
+.diary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.diary-tagline {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  max-width: 340px;
+  line-height: 1.55;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 40px auto;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: var(--ink);
+  aspect-ratio: 16 / 9;
+}
+
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-play-btn {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 16, 10, 0.28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: opacity 0.25s ease, background-color 0.25s ease;
+  border: none;
+  color: var(--bg);
+}
+
+.video-play-btn:hover {
+  background: rgba(20, 16, 10, 0.42);
+}
+
+.video-play-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.play-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  color: var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.video-play-btn:hover .play-circle {
+  transform: scale(1.07);
+}
+
+.play-label {
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Editorial Photo Grid */
+.diary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.diary-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.diary-thumb {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: #E7DFD5;
+}
+
+.diary-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diary-card:hover .diary-thumb img {
+  transform: scale(1.03);
+}
+
+.diary-caption {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   Booking & Socials Section
+   ========================================================================== */
+.booking-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: clamp(28px, 5vw, 56px);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.booking-header {
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+
+.booking-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.booking-option {
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 28px;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.booking-option:hover {
+  border-color: var(--burgundy);
+  background-color: #FFFFFF;
+}
+
+.option-kicker {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 8px;
+}
+
+.option-title {
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.option-desc {
+  font-size: 0.88rem;
+  line-height: 1.62;
+  color: var(--ink-2);
+}
+
+.booking-social-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.booking-note {
+  margin-top: 24px;
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   Contacts & Direct Social Rows
+   ========================================================================== */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: start;
+}
+
+.contact-meta-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-meta-item:first-of-type {
+  border-top: 1px solid var(--line);
+}
+
+.contact-meta-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 4px;
+}
+
+.contact-meta-value {
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+
+.contact-meta-value a:hover {
+  color: var(--burgundy);
+}
+
+.social-links-list {
+  border-top: 1px solid var(--line);
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.25s ease, padding-left 0.25s ease;
+}
+
+.social-row:hover {
+  border-bottom-color: var(--burgundy);
+  padding-left: 6px;
+}
+
+.social-row-title {
+  font-size: 1.12rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.social-row:hover .social-row-title {
+  color: var(--burgundy);
+}
+
+.social-row-sub {
+  font-size: 0.84rem;
+  color: var(--ink-2);
+}
+
+.social-arrow {
+  font-size: 1.1rem;
+  color: var(--burgundy);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Footer (Deep Burgundy)
+   ========================================================================== */
+.footer {
+  background-color: var(--burgundy);
+  color: var(--bg);
+  padding: 44px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-brand img {
+  height: 30px;
+  width: auto;
+}
+
+.footer-meta {
+  font-size: 0.78rem;
+  color: rgba(250, 245, 240, 0.84);
+  letter-spacing: 0.03em;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ==========================================================================
+   Native <dialog> Lightbox
+   ========================================================================== */
+dialog.pm-lightbox {
+  contain: layout style paint;
+  margin: auto;
+  width: auto;
+  max-width: 92vw;
+  max-height: 92dvh;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  overflow: visible;
+  text-align: center;
+}
+
+dialog.pm-lightbox::backdrop {
+  background: rgba(20, 16, 10, 0.9);
+}
+
+.lightbox-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.lightbox-frame img {
+  max-width: 90vw;
+  max-height: 82dvh;
+  width: auto;
+  height: auto;
+  border-radius: 3px;
+}
+
+.lightbox-caption {
+  color: rgba(250, 245, 240, 0.84);
+  font-size: 0.82rem;
+  margin-top: 10px;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(250, 245, 240, 0.14);
+  color: var(--bg);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 900px) {
+  .brand-band-grid,
+  .manifesto-grid,
+  .booking-options,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .brand-band-logo {
+    justify-content: flex-start;
+  }
+
+  .direction-row {
+    grid-template-columns: 44px 1fr;
+    gap: 10px 16px;
+  }
+
+  .direction-desc,
+  .direction-action {
+    grid-column: 2 / -1;
+    align-items: flex-start;
+  }
+
+  .diary-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .booking-social-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Concept Switcher Pill (V1 / V2 / V3) */
+.variant-switcher {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background-color: rgba(20, 16, 10, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(250, 245, 240, 0.16);
+  box-shadow: 0 8px 24px rgba(20, 16, 10, 0.22);
+}
+
+.variant-switcher a {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(250, 245, 240, 0.78);
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.variant-switcher a:hover {
+  color: #FAF5F0;
+}
+
+.variant-switcher a.is-active {
+  background-color: #8C0F33;
+  color: #FAF5F0;
+  font-weight: 500;
+}
+
+@media (max-width: 520px) {
+  .variant-switcher {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+  }
+}

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petite Maison — Вариант 3 · Галерея и скетчбук | Фотостудия в центре Бреста</title>
+  <meta name="description" content="Petite Maison (Петит Мэзон — Маленький Дом) — фотостудия в центре Бреста с французским шармом. Аренда для фото- и видеосъёмок, встреч и мастер-классов. Запись через YCLIENTS.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preload" href="assets/fonts/helvetica-neue-400.woff" as="font" type="font/woff" crossorigin>
+
+  <!-- Critical Above-The-Fold CSS: Centered Swiss Lookbook (#FAF5F0 / #8C0F33 / #14100A) -->
+  <style>
+    @font-face {
+      font-family: 'Helvetica Neue';
+      src: url('assets/fonts/helvetica-neue-300.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Helvetica Neue';
+      src: url('assets/fonts/helvetica-neue-400.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Helvetica Neue';
+      src: url('assets/fonts/helvetica-neue-500.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #FAF5F0;
+      --bg-warm: #F3ECE4;
+      --burgundy: #8C0F33;
+      --burgundy-hover: #700B28;
+      --ink: #14100A;
+      --ink-2: rgba(20, 16, 10, 0.72);
+      --ink-3: rgba(20, 16, 10, 0.48);
+      --line: rgba(20, 16, 10, 0.13);
+      --font: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 40px);
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 15px 0;
+      background-color: rgba(250, 245, 240, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand-link img { width: 114px; height: 35px; object-fit: contain; }
+    .nav { display: flex; align-items: center; gap: 26px; }
+    .nav a { font-size: 0.8rem; letter-spacing: 0.05em; color: var(--ink-2); }
+    .nav a:hover { color: var(--burgundy); }
+    .header-right { display: flex; align-items: center; gap: 14px; }
+    .menu-toggle {
+      display: none;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+
+    /* Buttons */
+    .btn-burgundy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background-color: var(--burgundy);
+      border: 1px solid var(--burgundy);
+      color: var(--bg);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background-color 0.2s ease;
+    }
+    .btn-burgundy:hover { background-color: var(--burgundy-hover); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(20, 16, 10, 0.28);
+      color: var(--ink);
+      font-size: 0.78rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    }
+    .btn-outline:hover { border-color: var(--burgundy); color: var(--burgundy); background-color: #FFFFFF; }
+    .btn-sm { padding: 8px 18px; font-size: 0.72rem; }
+
+    /* Centered Monumental Hero + Lookbook Strip */
+    .hero-center {
+      padding-top: clamp(92px, 9vw, 118px);
+      padding-bottom: clamp(48px, 6vw, 72px);
+      text-align: center;
+    }
+    .hero-center-logo {
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+    .hero-center-logo img {
+      width: min(195px, 50vw);
+      height: auto;
+      margin: 0 auto;
+    }
+    .hero-center-kicker {
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 12px;
+    }
+    .hero-center-title {
+      font-size: clamp(1.9rem, 3.8vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 760px;
+      margin: 0 auto 14px auto;
+    }
+    .hero-center-lead {
+      font-size: 0.98rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--ink-2);
+      max-width: 600px;
+      margin: 0 auto 26px auto;
+    }
+    .hero-center-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 42px;
+    }
+
+    /* Filter Bar + 4-Photo Lookbook Grid */
+    .lookbook-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .lookbook-bar-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .lookbook-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 0.76rem;
+      color: var(--ink-2);
+      transition: all 0.2s ease;
+    }
+    .filter-pill:hover { border-color: var(--burgundy); color: var(--ink); }
+    .filter-pill.is-active {
+      background-color: var(--burgundy);
+      border-color: var(--burgundy);
+      color: var(--bg);
+    }
+
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      text-align: left;
+    }
+    .lookbook-item {
+      display: flex;
+      flex-direction: column;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+    }
+    .lookbook-item[hidden] { display: none; }
+    .lookbook-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 3px;
+      background-color: #E7DFD5;
+    }
+    .lookbook-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .lookbook-item:hover .lookbook-photo img { transform: scale(1.03); }
+    .lookbook-meta {
+      margin-top: 8px;
+      font-size: 0.76rem;
+      color: var(--ink-2);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(300px, 82vw);
+        height: 100dvh;
+        background-color: var(--bg);
+        border-left: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 84px 28px 32px 28px;
+        gap: 20px;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        z-index: 99;
+      }
+      .nav.open { transform: translateX(0); }
+      .menu-toggle { display: inline-flex; position: relative; z-index: 101; }
+      .menu-toggle[aria-expanded="true"] .icon-burger { display: none; }
+      .menu-toggle[aria-expanded="false"] .icon-close { display: none; }
+      .lookbook-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .lookbook-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <link rel="preload" href="assets/css/v3.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/v3.css"></noscript>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+
+  <header class="header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-link" aria-label="Petite Maison — Наверх">
+        <img src="assets/logo/logo-script-burgundy.svg" alt="Petite Maison" width="192" height="59">
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Основная навигация">
+        <a href="#hero">Галерея</a>
+        <a href="#estimator">Подбор аренды</a>
+        <a href="#video">Видеотур</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="https://yclients.com/" target="_blank" rel="noopener" class="btn-burgundy btn-sm" data-link="yclients">Записаться</a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="primaryNav">
+          <svg class="icon-burger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <line x1="3" y1="7" x2="21" y2="7"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="17" x2="21" y2="17"/>
+          </svg>
+          <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"/>
+            <line x1="18" y1="6" x2="6" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Centered Hero + Interactive Lookbook -->
+    <section class="hero-center" id="hero">
+      <div class="container">
+        <div class="hero-center-logo">
+          <img src="assets/logo/logo-main.svg" alt="Petite Maison — фасад с балконом и рукописный логотип" width="194" height="154">
+        </div>
+        <div class="hero-center-kicker">Петит Мэзон &middot; Маленький Дом &middot; Центр Бреста</div>
+        <h1 class="hero-center-title">Фотостудия в центре Бреста с французским шармом</h1>
+        <p class="hero-center-lead">
+          Дневной свет, камин, лепнина и цветущий балкон — для фото- и видеосъёмок, а также для камерных встреч, мастер-классов и творческих событий.
+        </p>
+
+        <div class="hero-center-actions">
+          <a href="https://yclients.com/" target="_blank" rel="noopener" class="btn-burgundy" data-link="yclients">Записаться в YCLIENTS</a>
+          <a href="https://t.me/" target="_blank" rel="noopener" class="btn-outline" data-link="telegram">Telegram</a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener" class="btn-outline" data-link="instagram">Instagram</a>
+        </div>
+
+        <!-- Lookbook Filter & Strip -->
+        <div class="lookbook-bar">
+          <span class="lookbook-bar-label">Визуальный дневник студии &middot; Нажмите на кадр</span>
+          <div class="lookbook-filters" role="group" aria-label="Фильтр кадров">
+            <button type="button" class="filter-pill is-active" aria-pressed="true" data-filter-btn="all">Все кадры</button>
+            <button type="button" class="filter-pill" aria-pressed="false" data-filter-btn="interior">Интерьер</button>
+            <button type="button" class="filter-pill" aria-pressed="false" data-filter-btn="exterior">Балкон и фасад</button>
+          </div>
+        </div>
+
+        <div class="lookbook-grid">
+          <button type="button" class="lookbook-item" data-category="interior" data-lightbox-src="assets/images/opt/salon-fireplace-611w.jpg" data-lightbox-alt="Каминный зал Petite Maison с лепниной и дневным светом">
+            <div class="lookbook-photo">
+              <picture>
+                <source type="image/avif" srcset="assets/images/opt/salon-fireplace-400w.avif 400w, assets/images/opt/salon-fireplace-611w.avif 611w" sizes="(max-width: 520px) 92vw, (max-width: 900px) 45vw, 23vw">
+                <source type="image/webp" srcset="assets/images/opt/salon-fireplace-400w.webp 400w, assets/images/opt/salon-fireplace-611w.webp 611w" sizes="(max-width: 520px) 92vw, (max-width: 900px) 45vw, 23vw">
+                <img src="assets/images/opt/salon-fireplace-611w.jpg" alt="Каминный зал Petite Maison" width="611" height="899" fetchpriority="high" decoding="async">
+              </picture>
+            </div>
+            <span class="lookbook-meta">01 &middot; Каминный зал и высокие окна</span>
+          </button>
+
+          <button type="button" class="lookbook-item" data-category="interior" data-lightbox-src="assets/images/opt/lounge-rainy-view-900w.jpg" data-lightbox-alt="Гостиная у французского окна с диваном и живыми пионами">
+            <div class="lookbook-photo">
+              <picture>
+                <source type="image/avif" srcset="assets/images/opt/lounge-rainy-view-480w.avif 480w, assets/images/opt/lounge-rainy-view-900w.avif 900w" sizes="(max-width: 520px) 92vw, (max-width: 900px) 45vw, 23vw">
+                <source type="image/webp" srcset="assets/images/opt/lounge-rainy-view-480w.webp 480w, assets/images/opt/lounge-rainy-view-900w.webp 900w" sizes="(max-width: 520px) 92vw, (max-width: 900px) 45vw, 23vw">
+                <img src="assets/images/opt/lounge-rainy-view-900w.jpg" alt="Гостиная у окна Petite Maison" width="900" height="939" decoding="async">
+              </picture>
+            </div>
+            <span class="lookbook-meta">02 &middot; Диван bouclé, пионы и свет</span>
+          </button>
+
+          <button type="button" class="lookbook-item" data-category="interior" data-lightbox-src="assets/images/opt/hallway-arches-570w.jpg" data-lightbox-alt="Арочная входная галерея с молдингами и наборным паркетом">
+            <div class="lookbook-photo">
+              <picture>
+                <source type="image/avif" srcset="assets/images/opt/hallway-arches-400w.avif 400w, assets/images/opt/hallway-arches-570w.avif 570w" sizes="(max-width: 520px) 92vw, (max-width: 900px) 45vw, 23vw">
+                <source type="image/webp" srcset="assets/images/opt/hallway-arches-400w.webp 400w, assets/images/opt/hallway-arches-570w.webp 570w" sizes="(max-width: 520px) 92vw, (max-width: 900px) 45vw, 23vw">
+                <img src="assets/images/opt/hallway-arches-570w.jpg" alt="Арочная галерея Petite Maison" width="570" height="700" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <span class="lookbook-meta">03 &middot; Арочная галерея и паркет</span>
+          </button>
+
+          <button type="button" class="lookbook-item" data-category="exterior" data-lightbox-src="assets/images/opt/exterior-balcony-900w.jpg" data-lightbox-alt="Исторический кирпичный фасад и кованый балкон Petite Maison в Бресте">
+            <div class="lookbook-photo">
+              <picture>
+                <source type="image/avif" srcset="assets/images/opt/exterior-balcony-480w.avif 480w, assets/images/opt/exterior-balcony-900w.avif 900w" sizes="(max-width: 520px) 92vw, (max-width: 900px) 45vw, 23vw">
+                <source type="image/webp" srcset="assets/images/opt/exterior-balcony-480w.webp 480w, assets/images/opt/exterior-balcony-900w.webp 900w" sizes="(max-width: 520px) 92vw, (max-width: 900px) 45vw, 23vw">
+                <img src="assets/images/opt/exterior-balcony-900w.jpg" alt="Балкон Petite Maison в центре Бреста" width="900" height="1200" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <span class="lookbook-meta">04 &middot; Кованый балкон в центре Бреста</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Rental Format & Hours Estimator -->
+    <section class="section section-warm cv-auto" id="estimator">
+      <div class="container">
+        <div class="eyebrow">Подбор формата аренды</div>
+        <h2 class="section-heading">Прикиньте формат и длительность</h2>
+
+        <div class="estimator-grid">
+          <div>
+            <div class="est-group">
+              <div class="est-label">1. Цель бронирования</div>
+              <div class="est-pills">
+                <button
+                  type="button"
+                  class="est-pill is-active"
+                  aria-pressed="true"
+                  data-est-format="Фотосъёмка"
+                  data-est-rate="60"
+                  data-est-included="Естественный свет, камин, зеркало в золочёной раме, балкон с цветами и гримёрная зона."
+                >Фотосъёмка (60 BYN/ч)</button>
+
+                <button
+                  type="button"
+                  class="est-pill"
+                  aria-pressed="false"
+                  data-est-format="Видео и контент"
+                  data-est-rate="60"
+                  data-est-included="Чистый рассеянный свет, тихая локация для записи звука, сменные зоны для reels и интервью."
+                >Видео и контент (60 BYN/ч)</button>
+
+                <button
+                  type="button"
+                  class="est-pill"
+                  aria-pressed="false"
+                  data-est-format="Встреча / мастер-класс"
+                  data-est-rate="80"
+                  data-est-included="Аренда фотостудии для встреч, мастер-классов, психологических и творческих практик до 10 гостей, пледы и посуда для чая."
+                >Встреча / мастер-класс (80 BYN/ч)</button>
+              </div>
+            </div>
+
+            <div class="est-group">
+              <div class="est-label">2. Сколько часов понадобится</div>
+              <div class="est-pills">
+                <button type="button" class="est-pill" aria-pressed="false" data-est-hours="1">1 час</button>
+                <button type="button" class="est-pill is-active" aria-pressed="true" data-est-hours="2">2 часа</button>
+                <button type="button" class="est-pill" aria-pressed="false" data-est-hours="3">3 часа</button>
+                <button type="button" class="est-pill" aria-pressed="false" data-est-hours="4">Полдня &middot; 4 ч (-5%)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="est-card">
+            <div class="est-card-format" id="estSummaryFormat">Фотосъёмка &middot; 2 часа</div>
+            <div class="est-card-price" id="estSummaryPrice">от 120 BYN</div>
+            <p class="est-card-included" id="estSummaryIncluded">
+              Естественный свет, камин, зеркало в золочёной раме, балкон с цветами и гримёрная зона.
+            </p>
+            <p class="est-card-note" id="estSummaryNote">
+              Актуальные слоты, регистрация и онлайн-оплата — напрямую в YCLIENTS.
+            </p>
+            <div class="est-card-actions">
+              <a href="https://yclients.com/" target="_blank" rel="noopener" class="btn-burgundy" data-link="yclients" style="width:100%;">Забронировать в YCLIENTS</a>
+              <a href="https://t.me/" target="_blank" rel="noopener" class="btn-outline" data-link="telegram" style="width:100%;">Уточнить в Telegram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brandbook Burgundy Quote Strip -->
+    <section class="quote-strip cv-auto">
+      <div class="container">
+        <h2 class="quote-strip-title">Искренность через несовершенство</h2>
+        <p class="quote-strip-sub">В каждом мгновении есть своя история &middot; Ты — искусство</p>
+      </div>
+    </section>
+
+    <!-- Video Tour -->
+    <section class="section cv-auto" id="video">
+      <div class="container" style="text-align:center;">
+        <div class="eyebrow">Видеотур</div>
+        <h2 class="section-heading">Загляните в Маленький Дом</h2>
+        <div class="video-wrap">
+          <div class="video-frame">
+            <video id="studioVideo" controls loading="lazy" preload="none" playsinline width="960" height="540" poster="assets/images/opt/video-poster.webp">
+              <source src="assets/video/studio-tour.mp4" type="video/mp4">
+              <source src="assets/video/studio-tour.mov" type="video/quicktime">
+            </video>
+            <button type="button" class="video-play-btn" id="videoOverlay" aria-label="Запустить видеотур по студии">
+              <span class="play-circle" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px;">
+                  <polygon points="6 4 20 12 6 20 6 4"/>
+                </svg>
+              </span>
+              <span class="play-label">Видеотур по студии</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Native <details> FAQ Accordion -->
+    <section class="section cv-auto" id="faq" aria-labelledby="faq-heading">
+      <div class="container faq-layout">
+        <div>
+          <div class="eyebrow">Частые вопросы</div>
+          <h2 class="section-heading" id="faq-heading">Перед визитом в Petite Maison</h2>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>Можно ли забронировать фотостудию под встречу или мастер-класс?</summary>
+            <p class="faq-answer">
+              Да. Помимо фото- и видеосъёмок, пространство бронируют под камерные мастер-классы, лекции, книжные клубы, психологические и творческие встречи до 10 участников. Все свободные окна видны в YCLIENTS, а нестандартную рассадку можно обсудить в Telegram.
+            </p>
+          </details>
+
+          <details>
+            <summary>Как происходит запись и оплата?</summary>
+            <p class="faq-answer">
+              Онлайн-запись, регистрация и оплата проходят напрямую в YCLIENTS — там сразу видны свободные часы и подтверждается ваше бронирование.
+            </p>
+          </details>
+
+          <details>
+            <summary>Когда в студии лучший естественный свет?</summary>
+            <p class="faq-answer">
+              Высокие окна наполняют зал мягким рассеянным светом в течение всего светового дня. Утром и днём свет максимально воздушный, а ближе к вечеру появляются тёплые объёмные тени и свет бра.
+            </p>
+          </details>
+
+          <details>
+            <summary>Нужна ли сменная обувь и есть ли чайная зона?</summary>
+            <p class="faq-answer">
+              Чтобы сохранить паркет чистым, просим брать с собой чистую сменную обувь (в прихожей также есть тапочки). В студии доступны вода, чай и красивая посуда для съёмок и встреч.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Brest Contacts -->
+    <section class="section cv-auto" id="contacts">
+      <div class="container">
+        <div class="eyebrow">Контакты &middot; Брест</div>
+        <h2 class="section-heading">Исторический центр г. Бреста &middot; 09:00–22:00</h2>
+
+        <div class="contacts-row">
+          <a href="https://yclients.com/" target="_blank" rel="noopener" class="contact-tile" data-link="yclients">
+            <span class="contact-tile-kicker">Онлайн-запись</span>
+            <span class="contact-tile-title">YCLIENTS &#x2197;</span>
+            <span class="contact-tile-sub">Выбор времени, регистрация и онлайн-оплата бронирования</span>
+          </a>
+
+          <a href="https://instagram.com/" target="_blank" rel="noopener" class="contact-tile" data-link="instagram">
+            <span class="contact-tile-kicker">Визуальный дневник</span>
+            <span class="contact-tile-title">Instagram &#x2197;</span>
+            <span class="contact-tile-sub">Свежие кадры, атмосфера балкона и анонсы сезонного декора</span>
+          </a>
+
+          <a href="https://t.me/" target="_blank" rel="noopener" class="contact-tile" data-link="telegram">
+            <span class="contact-tile-kicker">Быстрая связь</span>
+            <span class="contact-tile-title">Telegram &#x2197;</span>
+            <span class="contact-tile-sub">Уточнить детали по мастер-классам, встречам и длительной аренде</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo/logo-script-cream.svg" alt="Petite Maison" width="192" height="59" loading="lazy">
+        <span class="footer-meta">Петит Мэзон &middot; Маленький Дом &middot; Брест</span>
+      </div>
+      <div class="footer-meta footer-links">
+        <a href="tel:+375291234567" data-link="phone">+375 (29) 123-45-67</a>
+        <span>&middot;</span>
+        <a href="https://yclients.com/" target="_blank" rel="noopener" data-link="yclients">YCLIENTS</a>
+        <span>&middot;</span>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" data-link="instagram">Instagram</a>
+        <span>&middot;</span>
+        <a href="https://t.me/" target="_blank" rel="noopener" data-link="telegram">Telegram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Dialog -->
+  <dialog id="lightboxModal" class="pm-dialog pm-lightbox" closedby="any" aria-label="Просмотр фотографии">
+    <button type="button" class="lightbox-close" data-dialog-close aria-label="Закрыть просмотр">&#x2715;</button>
+    <div class="lightbox-frame">
+      <img id="lightboxImg" src="" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </dialog>
+
+  <!-- Subtle Concept Switcher -->
+  <nav class="variant-switcher" aria-label="Варианты дизайна">
+    <a href="index.html">1 &middot; Светлый</a>
+    <a href="v2.html">2 &middot; Бордовый</a>
+    <a href="v3.html" class="is-active" aria-current="page">3 &middot; Галерея</a>
+  </nav>
+</body>
+</html>
